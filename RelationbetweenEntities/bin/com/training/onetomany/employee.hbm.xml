@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.training.onetomany.Employee" table="EmpInfo">
+<id name="empid" column="EmpId">
+<generator class="increment"/>
+</id>
+<property name="empname" column="EmpName"/>
+<property name="salary" column="EmpSalary"/>
+<many-to-one name="deptobj" class="com.training.onetomany.Department" fetch="select">
+<column name="DeptCode" not-null="true"/>
+</many-to-one>
+</class>
+</hibernate-mapping>

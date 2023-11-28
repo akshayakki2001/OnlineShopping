@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.training.onetoone2.Product" table="ProductTable">
+<id name="productid">
+<generator class="assigned"></generator>
+</id>
+<property name="productname"/>
+<property name="category"/>
+<one-to-one name="prodobj" cascade="all"></one-to-one>
+</class>
+</hibernate-mapping>

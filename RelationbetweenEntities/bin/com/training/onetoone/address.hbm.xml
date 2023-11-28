@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.training.onetoone.Address" table="AddressInfo">
+<id name="addid" column="Addressid">
+<generator class="foreign">
+<param name="property">stobj</param>
+</generator>
+</id>
+<property name="houseno" column="Houseno"></property>
+<property name="city" column="City"></property>
+<property name="state" column="State"></property>
+<one-to-one name="stobj" cascade="all"></one-to-one>
+
+</class>
+</hibernate-mapping>

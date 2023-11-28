@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.training.onetomany2.Customer" table="Customertable">
+<id name="cusid" column="columnid">
+<generator class="assigned"></generator>
+</id>
+<property name="cusname" column="CustomerName"></property>
+<property name="cusphone" column="phone"></property>
+<property name="address" column="Address"></property>
+<set name="itemlist" cascade="all" inverse="true" fetch="select">
+<key>
+<column name="cusid" not-null="true"></column>
+</key>
+<one-to-many class="com.training.onetomany2.Item"></one-to-many>
+</set>
+
+
+</class>
+
+
+
+
+</hibernate-mapping>

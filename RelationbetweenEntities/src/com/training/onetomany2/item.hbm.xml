@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.training.onetomany2.Item" table="Itemtable">
+<id name="itemcode" column="itemcode">
+<generator class="assigned"></generator>
+</id>
+<property name="itemname" column="Name"></property>
+<property name="itemprice" column="Price"></property>
+<property name="quantityonhand"></property>
+<many-to-one name="cusobj" class="com.training.onetomany2.Customer" fetch="select">
+<column name="cusid" not-null="true"></column>
+</many-to-one>
+
+</class>
+
+</hibernate-mapping>

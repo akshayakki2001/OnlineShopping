@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.training.onetoone.Student" table="StudentInfo">
+<id name="studentid" column="studentid">
+<generator class="increment"></generator>
+</id>
+<property name="studentname" column="studentname"/>
+<property name="score" column="score"></property>
+<one-to-one name="addobj" cascade="all"></one-to-one>
+</class>
+</hibernate-mapping>
