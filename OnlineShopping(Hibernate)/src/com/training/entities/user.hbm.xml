@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.training.entities.User" table = "UserTable">
+<id name="userid" column ="userid">
+<generator class="increment"></generator>
+</id>
+<property name="username" column ="Username"></property>
+<property name="password" column ="Password"></property>
+<property name="emailid" column ="EmailId"></property>
+<property name="superCoins" column ="superCoins"></property>
+<property name="userType" column ="userType"></property>
+<set name="setptoduct" cascade ="all" inverse ="true" fetch="select">
+<key>
+<column name="userid"></column>
+</key>
+<one-to-many class ="com.training.entities.Product"></one-to-many>
+</set>
+</class>
+</hibernate-mapping>

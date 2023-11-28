@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name = "com.training.entities.Item" table="ItemTable">
+
+<id name ="itemid" column ="itemid">
+<generator class="assigned"></generator>
+</id>
+
+<property name="category" column="Category"></property>
+<property name="buyingPrice" column="BuyingPrice"></property>
+
+
+<joined-subclass name="com.training.entities.Product" table="ProductTable">
+<key column="itemid"></key>
+<property name="productName" column ="ProductName"></property>
+<property name="sellingPrice" column ="SellingPrice"></property>
+<property name="AvailableQuantity" column="AvailableQuantity"></property>
+<many-to-one name="userobj" class ="com.training.entities.User" fetch ="select">
+<column  name = "userid" not-null="true"></column>
+</many-to-one>
+</joined-subclass>
+
+</class>
+</hibernate-mapping>
